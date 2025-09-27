@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "otDp0g+I9/U=",
+  "dgSpecHash": "gW0/cVYppG0=",
   "success": true,
-  "projectFilePath": "C:\\Parcial\\Portal-Inmobiliario\\PortalInmobiliario\\PortalInmobiliario.csproj",
+  "projectFilePath": "C:\\Parcial-2\\Portal-Inmobiliario\\PortalInmobiliario.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jarel\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\jarel\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\9.0.8\\microsoft.aspnetcore.cryptography.internal.9.0.8.nupkg.sha512",

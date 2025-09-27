@@ -3570,11 +3570,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Parcial\\Portal-Inmobiliario\\PortalInmobiliario\\PortalInmobiliario.csproj",
+      "projectUniqueName": "C:\\Parcial-2\\Portal-Inmobiliario\\PortalInmobiliario.csproj",
       "projectName": "PortalInmobiliario",
-      "projectPath": "C:\\Parcial\\Portal-Inmobiliario\\PortalInmobiliario\\PortalInmobiliario.csproj",
+      "projectPath": "C:\\Parcial-2\\Portal-Inmobiliario\\PortalInmobiliario.csproj",
       "packagesPath": "C:\\Users\\jarel\\.nuget\\packages\\",
-      "outputPath": "C:\\Parcial\\Portal-Inmobiliario\\PortalInmobiliario\\obj\\",
+      "outputPath": "C:\\Parcial-2\\Portal-Inmobiliario\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jarel\\AppData\\Roaming\\NuGet\\NuGet.Config"
