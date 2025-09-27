@@ -1,0 +1,37 @@
+@model IEnumerable<PortalInmobiliario.Models.Inmueble>
+@{ ViewData["Title"] = "Catálogo"; }
+<h2>Catálogo</h2>
+
+<form method="get" class="row g-2 mb-3">
+  <div class="col"><input name="ciudad" value="@ViewData["FiltroCiudad"]" class="form-control" placeholder="Ciudad" /></div>
+  <div class="col">
+    <select name="tipo" class="form-select">
+      <option value="">(Tipo)</option>
+      <option value="0" selected="@(ViewData["FiltroTipo"]?.ToString()=="0")">Departamento</option>
+      <option value="1" selected="@(ViewData["FiltroTipo"]?.ToString()=="1")">Casa</option>
+      <option value="2" selected="@(ViewData["FiltroTipo"]?.ToString()=="2")">Oficina</option>
+      <option value="3" selected="@(ViewData["FiltroTipo"]?.ToString()=="3")">Local</option>
+    </select>
+  </div>
+  <div class="col"><input name="precioMin" type="number" step="1" value="@ViewData["FiltroMin"]" class="form-control" placeholder="Precio mín" /></div>
+  <div class="col"><input name="precioMax" type="number" step="1" value="@ViewData["FiltroMax"]" class="form-control" placeholder="Precio máx" /></div>
+  <div class="col"><input name="dormitorios" type="number" value="@ViewData["FiltroDorms"]" class="form-control" placeholder="Dorms ≥" /></div>
+  <div class="col"><button class="btn btn-primary">Filtrar</button></div>
+</form>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<table class="table">
+  <thead><tr><th>Título</th><th>Ciudad</th><th>Tipo</th><th>Precio</th><th></th></tr></thead>
+  <tbody>
+  @foreach (var i in Model) {
+    <tr>
+      <td>@i.Titulo</td>
+      <td>@i.Ciudad</td>
+      <td>@i.Tipo</td>
+      <td>@i.Precio</td>
+      <td><a asp-action="Detalle" asp-route-id="@i.Id" class="btn btn-sm btn-outline-secondary">Ver</a></td>
+    </tr>
+  }
+  </tbody>
+</table>
