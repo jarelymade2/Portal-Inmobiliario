@@ -44,8 +44,14 @@ public class InmueblesController : Controller
     // GET: /Inmuebles/Detalle/5
     public async Task<IActionResult> Detalle(int id)
     {
-        var item = await _db.Inmuebles.FindAsync(id);
-        if (item is null || !item.Activo) return NotFound();
+        var item = await _db.Inmuebles.AsNoTracking().FirstOrDefaultAsync(i => i.Id == id && i.Activo);
+        if (item is null) return NotFound();
+
+        var ahora = DateTime.UtcNow;
+        var hayReservaActiva = await _db.Reservas
+            .AnyAsync(r => r.InmuebleId == id && r.FechaExpiracion > ahora);
+
+        ViewBag.HayReservaActiva = hayReservaActiva;
         return View(item);
     }
 }
