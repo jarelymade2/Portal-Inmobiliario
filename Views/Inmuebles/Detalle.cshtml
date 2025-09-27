@@ -1,0 +1,34 @@
+@model PortalInmobiliario.Models.Inmueble
+@{ ViewData["Title"] = "Detalle"; }
+<h2>@Model.Titulo</h2>
+<p><strong>Código:</strong> @Model.Codigo</p>
+<p><strong>Ciudad:</strong> @Model.Ciudad</p>
+<p><strong>Tipo:</strong> @Model.Tipo</p>
+<p><strong>Precio:</strong> @Model.Precio</p>
+
+@if (User.Identity?.IsAuthenticated ?? false) {
+  <a href="#agendar" class="btn btn-outline-primary">Agendar visita</a>
+  <form asp-controller="Reservas" asp-action="Reservar" method="post" class="d-inline">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="inmuebleId" value="@Model.Id"/>
+    <button class="btn btn-primary">Reservar ahora (48h)</button>
+  </form>
+} else {
+  <a href="/Identity/Account/Login" class="btn btn-warning">Inicia sesión para agendar</a>
+}
+
+@if (TempData["ok"] != null) { <div class="alert alert-success mt-3">@TempData["ok"]</div> }
+@if (TempData["err"] != null) { <div class="alert alert-danger mt-3">@TempData["err"]</div> }
+
+<hr id="agendar"/>
+<h4>Agendar visita</h4>
+@if (User.Identity?.IsAuthenticated ?? false) {
+  <form asp-controller="Visitas" asp-action="Agendar" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="inmuebleId" value="@Model.Id"/>
+    <div class="mb-2"><label>Inicio</label><input type="datetime-local" name="fechaInicio" class="form-control" required/></div>
+    <div class="mb-2"><label>Fin</label><input type="datetime-local" name="fechaFin" class="form-control" required/></div>
+    <div class="mb-2"><textarea name="notas" class="form-control" placeholder="Notas (opcional)"></textarea></div>
+    <button class="btn btn-outline-primary">Solicitar visita</button>
+  </form>
+}

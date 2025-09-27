@@ -50,8 +50,8 @@ app.UseAuthorization();
 // Rutas
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Inmuebles}/{action=Catalogo}/{id?}");
+
 
 app.MapRazorPages().WithStaticAssets();
 
